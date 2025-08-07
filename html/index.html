@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>zack hoang</h1>
+        <p>all you need to know about me</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>Hi! I'm Viet Anh Hoang, though I often refer to myself as Zack, a name taken inspiration from a Final Fantasy VII character, Zack Fair. My journey with web development started since summer 2023 with <a href="https://theodinproject.com">The Odin Project</a>. Ever since, I have learnt and built many applications that uses core web development fundamentals within the JavaScript ecosystem. Right now, I'm a student at SFU that aspires to bring elegant solutions into web development projects.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <h3>Front End</h3>
+            <div class="skills-icon">
+                <img alt="html" src="../logos/html.svg">
+                <img alt="css" src="../logos/css.svg">
+                <img alt="javascript" src="../logos/javascript.svg">
+                <img alt="react" src="../logos/react.svg">
+            </div>
+            <h3>Back End</h3>
+            <div class="skills-icon">
+                <img alt="nodejs" src="../logos/nodejs.svg">
+                <img alt="expressjs" src="../logos/logotype-dark.svg">
+                <img alt="postgresql" src="../logos/postgresql.svg">
+                <img alt="prisma" src="../logos/Prisma-LightLogo.svg">
+            </div>
+            <h3>Miscelleanous</h3>
+            <div class="skills-icon">
+                <img alt="git" id="skills-icon-git" src="../logos/Git-Icon-White.svg">
+                <img alt="ubuntu" src="../logos/Canonical Ubuntu Dark.svg"> 
+            </div>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <article class="projects-card">
+                    <h3>Shopping Cart</h3>
+                    <img src="../projects/shopping-cart.png">
+                    <p>Looking for some manga? Head over to MangaShop! This is a React e-commerce app that utilizes <a href="https://jikan.moe">Jikan API</a> to fetch current trending mangas on MyAnimeList.</p>
+                </article>
+                <article class="projects-card">
+                    <h3>Memory Card Game</h3>
+                    <img src="../projects/memory-card.png">
+                    <p>Think you're good at remembering? This React memory card game uses the <a href="https://github.com/ByMykel/CSGO-API">unofficial Counter-Strike 2 API</a> that returns all information about weapons in this game and randomize them into a memory card game!</p>
+                </article>
+                <article class="projects-card">
+                    <h3>Battleship</h3>
+                    <img src="../projects/battleship.png">
+                    <p>Battleship is a classic. Made entirely with vanilla JavaScript, bundled with webpack and tested using Jest with a simple AI, this game will test your ability to coordinate attacks.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <a href="https://github.com/ZackHoang"><img class="contact-logo" src="../logos/github-mark-white.svg"/></a>
+            <a href="https://www.linkedin.com/in/viet-anh-hoang-a504911b1/"><img class="contact-logo" id="linked-in-logo" src="../logos/icons8-linkedin-white.svg"/></a>
+        </div>
+    </footer>
+</body>
+</html>
