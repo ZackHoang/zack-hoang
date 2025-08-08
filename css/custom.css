@@ -6,7 +6,7 @@
 }
 
 #skills-icon-git {
-    min-width: 50%;
+    max-width: 50%;
 }
 
 
@@ -14,5 +14,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+}
+
+.projects-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects-icon a {
+    display: flex;
+    justify-content: center;
+}
+
+.projects-icon img {
+    max-width: 50%;
 }
