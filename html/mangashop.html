@@ -18,11 +18,17 @@
         </nav>
     </header>
     <main>
-        <h1>MangaShop</h1>
+        <h2>MangaShop</h2>
         <img src="../projects/shopping-cart.png">
         <section>
             <h2>Scope</h2>
-            <div>
+            <div class="scope">
+                <div>
+                    <h3>Team</h3>
+                    <ul>
+                        <li>Zack Hoang</li>
+                    </ul>
+                </div>
                 <div>
                     <h3>Timeline</h3>
                     <p>May 2025 - June 2025</p>
@@ -41,21 +47,21 @@
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#problems">Problems</a></li>
+                <li><a href="#challenges">Challenges</a></li>
                 <li><a href="#takeaway">Takeaway</a></li>
             </ol>
         </article>
         <section id="overview">
             <h2>Overview</h2>
-            <p>MangaShop is an mock e-commerce app that simulates a real shopping app that you would find anywhere. This project aim to encapsulates the key elements of what is possible with React on a basic level   .</p>
+            <p>MangaShop is an mock e-commerce app that simulates a real shopping app that you would find anywhere. This project aim to encapsulates the key elements of what is possible with React on a basic level.</p>
         </section>
         <section id="tools">
             <h2>Tools</h2>
             <ul>
-                <li><a href="https://vite.dev/">Vite</a>: scaffolding a React project</li>
-                <li><a href="https://reactrouter.com/">React Router</a>: page navigation</li>
-                <li><a href="https://github.com/css-modules/css-modules">CSS Modules</a>: locally scoped CSS modules to style each component</li>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>: making HTTP requests</li>
+                <li><a href="https://vite.dev/" target="_blank">Vite</a>: scaffolding a React project</li>
+                <li><a href="https://reactrouter.com/" target="_blank">React Router</a>: page navigation</li>
+                <li><a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>: locally scoped CSS modules to style each component</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API</a>: making HTTP requests</li>
             </ul>
         </section>
         <section id="features">
@@ -66,10 +72,11 @@
                 <li><b>Adding Items Into Cart</b>: users can add different numbers of mangas and the cart will calculate the total sum</li>
             </ul>
         </section>
-        <section id="problems">
-            <h2>Problems</h2>
+        <section id="challenges">
+            <h2>Challenges</h2>
             <ul>
-                <li><b>State Management</b>: The component hierarchy for this project is quite simple: one main <code>App</code> component hosts the navigation bar and an <code>Outlet</code> component that renders depending on the route. Each states used to exists within its parent component that gets rendered by the <code>Outlet</code> component. However, this quickly becomes a problem when states need to be shared across different routes. The quickest solution in this case is the host all states in the <code>App</code> component and pass states down to child components with the <a href="https://reactrouter.com/api/components/Outlet"><code>context</code></a> prop and access them with <a href="https://reactrouter.com/api/hooks/useOutletContext"><code>useOutletContext()</code></a></li>
+                <li><b>State Management</b>: The component hierarchy for this project is quite simple: one main <code>App</code> component hosts the navigation bar and an <code>Outlet</code> component that renders depending on the route. Each states used to exists within its parent component that gets rendered by the <code>Outlet</code> component. However, this quickly becomes a problem when states need to be shared across different routes. The quickest solution in this case is the host all states in the <code>App</code> component and pass states down to child components with the <a href="https://reactrouter.com/api/components/Outlet" target="_blank"><code>context</code></a> prop and access them with <a href="https://reactrouter.com/api/hooks/useOutletContext" target="_blank"><code>useOutletContext()</code></a></li>
+                <br/>
                 <li><b>Strict Mode</b>: causes the targeted component to re-render one extra time to catch any impure re-rendering. However, this has also caused my component to fetch the API one more time, which exceeded the rate limit of Jikan API. Removing strict mode resolved this issue swiftly, but for future projects I will look into this problem more critical.</li>
             </ul>
         </section>

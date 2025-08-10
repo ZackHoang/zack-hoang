@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <title>MyDrive</title>
+</head>
+<body>
+    <header>
+        <h1>zack hoang</h1>
+        <p>project details</p>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./projects.html">Projects</a>
+            <a>Resume</a>
+        </nav>
+    </header>
+    <main>
+        <h2>MyDrive</h2>
+        <img src="../projects/file-uploader.png">
+        <section>
+            <h2>Scope</h2>
+            <div class="scope">
+                <div>
+                    <h3>Team</h3>
+                    <ul>
+                        <li>Zack Hoang</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Timeline</h3>
+                    <p>July 2025 - Aug 2025</p>
+                </div>
+                <div>
+                    <h3>Role(s)</h3>
+                    <ul>
+                        <li>Backend Developer</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <article>
+            <h2>Table Of Content</h2>
+            <ol>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#takeaway">Takeaway</a></li>
+            </ol>
+        </article>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>MyDrive is a secure(-ish?) cloud storage for your images. Written using ExpressJS and its middleware ecosystem, it contains most of the basic features you can expect from a file uploader: Authentication, CRUDable folders and files upload, download and delete.</p>
+        </section>
+        <section id="tools">
+            <h2>Tools</h2>
+            <ul>
+                <li><a href="https://expressjs.com/" target="_blank">ExpressJS</a>: JavaScript backend framework</li>
+                <li><a href="https://ejs.co/" target="_blank">EJS</a>: genereate HTML with JavaScript</li>
+                <li><a href="https://express-validator.github.io/docs/" target="_blank">Express Validator</a>: sanitize and validate user-provided input</li>
+                <li><a href="https://expressjs.com/en/resources/middleware/multer.html" target="_blank">Multer</a>: handle processing uploaded files</li>
+                <li><a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a>: database</li>
+                <li><a href="https://www.prisma.io/" target="_blank">Prisma</a>: ORM</li>
+                <li><a href="https://www.passportjs.org/" target="_blank">PassportJS</a>: NodeJS authentication middleware</li>
+                <li><a href="https://www.passportjs.org/packages/passport-local/" target="_blank">PassportJS Local Strategy</a>: authentication strategy with username and password</li>
+                <li><a href="https://cloudinary.com/" target="_blank">Cloudinary API</a>: image storage</li>
+            </ul>
+        </section>
+        <section id="features">
+            <h2>Features</h2>
+            <ul>
+                <li><b>Authentication</b>: with usernames and passwords</li>
+                <li><b>CRUDable folders</b>: Create, Read files, Update name, and Delete folders. These are records that lies inside database that gets queried based on its ID and its author</li>
+                <li><b>Upload files</b>: upload images and store a record of upload information in the database, while image is stored in Cloudinary</li>
+                <li><b>View file's details</b>: file details can be viewed in a seperate route. Details include: file name, upload time, file size</li>
+            </ul>
+        </section>
+        <section id="challenges">
+            <h2>Challenges</h2>
+            <ul>
+                <li>
+                    <b>Setting Up Initial Schema</b>: setting up the database during the early stage to me the most amount of time and also a lot of migration to get to the final results. I ended up writting relations that I did not need at all until I realized I could make the app work with just querying scalar fields, with a small cost of querying more models. However, I did not find this to be much of a problem at all given this project's scope.
+                </li>
+                <br/>
+                <li>
+                    <b>Folder deletion</b>: deleting one folder means to also delete all of its descendants and files that contains within itself and its descendants. One could solve this problem recursively by deleting folders and files with the given ID of a parent, but I did not find this solution to be so intuitive. I settled for a simple Breadth First Search approach which goes like so:
+                    <ol>
+                        <li>Given a folder's ID, insert that ID into an array act as a queue</li>
+                        <li>Start the search, searching for folders that has its ID parent equal to the ID that we are trying to search</li>
+                        <li>If the search does not return any result, we know that folder does not have anymore descendant. We mark them as visited by insert that ID into another array called <code>visitedFoldersID</code>, dequeue, and search the next item in the queue</li>
+                        <li>Once the queue is empty, meaning the search is done, <code>visitedFoldersID</code> should now be an array of ID strings, which could be iterated through and delete on the database. For each iteration, we also delete all files that are contained in each folder.</li>
+                    </ol>
+                </li>
+                <br/>
+                <li>
+                    <b>File Type Checking</b>: I wanted to restrict users to only upload images. This is a small security check I implemented so that Cloudinary's storage does not grow too quick, since we can assume images files are quite small, ranging around a few kilobytes to megabytes and making sure users does not upload any suspicious or malicious files.
+                </li>
+            </ul>
+        </section>
+        <section id="takeaway">
+            <h2>Takeaway</h2>
+            <p>This has been my most challenging project so far and it has given me some ground to develop RESTful APIs for coming future projects. On top of being fun, it has given me some insights on how a common cloud storage works on the surface.</p>
+        </section>
+    </main>
+</body>
+</html>

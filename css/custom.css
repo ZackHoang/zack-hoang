@@ -30,3 +30,8 @@
 .projects-icon img {
     max-width: 50%;
 }
+
+.scope {
+    display: flex;
+    justify-content: space-between;
+}
