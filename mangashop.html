@@ -24,14 +24,8 @@
             <h2>Scope</h2>
             <div class="scope">
                 <div>
-                    <h3>Team</h3>
-                    <ul>
-                        <li>Zack Hoang</li>
-                    </ul>
-                </div>
-                <div>
                     <h3>Timeline</h3>
-                    <p>May 2025 - June 2025</p>
+                    <p>May 2025 - June 2025 (5 weeks)</p>
                 </div>
                 <div>
                     <h3>Role(s)</h3>
@@ -53,7 +47,7 @@
         </article>
         <section id="overview">
             <h2>Overview</h2>
-            <p>MangaShop is an mock e-commerce app that simulates a real shopping app that you would find anywhere. This project aim to encapsulates the key elements of what is possible with React on a basic level.</p>
+            <p>MangaShop is a mock e-commerce app that simulates a real shopping app that you would find anywhere. This project aim to encapsulates the key elements of what is possible when building a front end project with React.</p>
         </section>
         <section id="tools">
             <h2>Tools</h2>
@@ -62,20 +56,21 @@
                 <li><a href="https://reactrouter.com/" target="_blank">React Router</a>: page navigation</li>
                 <li><a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>: locally scoped CSS modules to style each component</li>
                 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API</a>: making HTTP requests</li>
+                <li><a href="https://jikan.moe/" target="_blank">Jikan API</a>: collection of mangas data</li>
             </ul>
         </section>
         <section id="features">
             <h2>Features</h2>
             <ul>
                 <li><b>SPA-like Navigation</b>: eliminate the need of routing to multiple HTML files with React Router's routing</li>
-                <li><b>Simulating Multi Page Fetching</b>: Using Jikan's API query end-points and Fetch API to fetch new data as user navigate to the next or previous pages as user shops</li>
-                <li><b>Adding Items Into Cart</b>: users can add different numbers of mangas and the cart will calculate the total sum</li>
+                <li><b>Multiple product pages data fetching</b>: Using Jikan's API query end-points and Fetch API to fetch new data as user navigate to the next or previous pages as user shops</li>
+                <li><b>Adding/Removing Items Into Cart</b>: users can add/remove different numbers of mangas and the cart will calculate the total sum</li>
             </ul>
         </section>
         <section id="challenges">
             <h2>Challenges</h2>
             <ul>
-                <li><b>State Management</b>: The component hierarchy for this project is quite simple: one main <code>App</code> component hosts the navigation bar and an <code>Outlet</code> component that renders depending on the route. Each states used to exists within its parent component that gets rendered by the <code>Outlet</code> component. However, this quickly becomes a problem when states need to be shared across different routes. The quickest solution in this case is the host all states in the <code>App</code> component and pass states down to child components with the <a href="https://reactrouter.com/api/components/Outlet" target="_blank"><code>context</code></a> prop and access them with <a href="https://reactrouter.com/api/hooks/useOutletContext" target="_blank"><code>useOutletContext()</code></a></li>
+                <li><b>State Management</b>: The component hierarchy for this project is quite simple: one main <code>App</code> component hosts the navigation bar and an <code>Outlet</code> component that renders the appropriate component depending on the route. Each states used to exists locally in each component. However, this quickly becomes a problem when states need to be shared across different routes. The quickest solution in this case is the host all states in the <code>App</code> component (state lifting) and pass the states down to child components with the <a href="https://reactrouter.com/api/components/Outlet" target="_blank"><code>context</code></a> prop and access them with <a href="https://reactrouter.com/api/hooks/useOutletContext" target="_blank"><code>useOutletContext()</code></a></li>
                 <br/>
                 <li><b>Strict Mode</b>: causes the targeted component to re-render one extra time to catch any impure re-rendering. However, this has also caused my component to fetch the API one more time, which exceeded the rate limit of Jikan API. Removing strict mode resolved this issue swiftly, but for future projects I will look into this problem more critical.</li>
             </ul>
